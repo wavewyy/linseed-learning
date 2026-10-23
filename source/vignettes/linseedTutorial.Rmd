@@ -1,0 +1,87 @@
+---
+title: "Linseed Tutorial"
+author: "Konstantin Zaitsev"
+date: "`r Sys.Date()`"
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{Linseed Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+# Linseed tutorial
+
+Linseed (LINear Subspace identification for gene Expresion Deconvolution) is a package that provides tools and interface to explore gene expression datasets in linear space.
+
+## Installing the package
+
+You can install the package using `devtools::install_github`:
+
+```{r eval=FALSE}
+devtools::install_github("ctlab/linseed")
+```
+
+Current build was tested using rhub: 
+
+## Getting started with linseed
+
+To start working with gene expression data, we need to create a new LinseedObject, in this tutorial we will use GSE19830 (mixture of Liver, Brain and Lung), we will take only mixed samples (10-42) and will take only 10000 most expressed genes.
+
+```{r warning=FALSE, message=FALSE}
+library(linseed)
+lo <- LinseedObject$new("GSE19830", samples=10:42, topGenes=10000)
+```
+
+## Coolinearity networks
+
+To build a coolinearity network we first have to evaluate all pairwise collinearity coefficients, all pairwise spearman correlation and then run significance test which will calculate p value for each each by shuffling network weights randomly.
+
+```{r networks, warning=FALSE}
+lo$calculatePairwiseLinearity()
+lo$calculateSpearmanCorrelation()
+lo$calculateSignificanceLevel(100)
+lo$significancePlot(0.01)
+
+lo$filterDatasetByPval(0.01)
+lo$svdPlot()
+
+```
+
+To visualiaze what left after filtering we can call projection plot from our object. But we have to project the data to the simplex first.
+
+```{r visi, warning=FALSE, message=FALSE}
+lo$setCellTypeNumber(3)
+lo$project("full") # projecting full dataset
+lo$projectionPlot(color="filtered")
+```
+
+
+## Deconvolution
+
+To deconvolve the dataset, you first have to project (full or filtered dataset) to the simplex, and then find corners of it.
+
+```{r deconvolution}
+data <- get("filtered", lo$exp)
+Y <- t(data$norm)
+if (is.null(lo$cellTypeNumber)) stop("Set cell type number first")
+lo$project("filtered")
+lo$smartSearchCorners(dataset="filtered", error="norm")
+lo$deconvolveByEndpoints()
+plotProportions(lo$proportions)
+```
+
+We can also use tSNE to haave an idea of how data looks like when dimensionally reduced.
+
+```{r rtsne}
+# lets select 100 genes closest to 
+lo$selectGenes(100)
+lo$tsnePlot()
+
+```
+
+To compare with actual proportions you can use `dotPlotProportions` function
+
+```{r proportions}
+data("proportionsLiverBrainLung")
+dotPlotPropotions(lo$proportions, proportionsLiverBrainLung[, 10:42], guess=TRUE)
+
+```

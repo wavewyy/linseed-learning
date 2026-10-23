@@ -1,0 +1,45 @@
+Package: linseed
+Type: Package
+Title: Linear Subpsace identification to solve complete gene expression deconvolution problem
+Version: 0.99.3
+Authors@R: person("Konstantin", "Zaitsev",
+    email = "zayats1812@mail.ru", role = c("aut", "cre"))
+Maintainer: Konstantin Zaitsev <zayats1812@mail.ru>
+Description: The package implements an algorithm to perform deconvolution
+    of gene expression dataset without prior
+    knowledge of cell-specific markers.
+biocViews: Software, GeneExpression, Clustering
+License: MIT + file LICENSE
+LazyData: TRUE
+VignetteBuilder: knitr
+LinkingTo: Rcpp, RcppArmadillo, BH
+SystemRequirements: 
+  libxml2-dev, 
+  libssl-dev, 
+  openssl
+Depends:
+    R (>= 3.6)
+Imports:
+    Rcpp,
+    RcppArmadillo,
+    BH,
+    methods,
+    GEOquery,
+    Biobase,
+    corpcor,
+    combinat,
+    NMF,
+    R6,
+    dplyr,
+    ggplot2,
+    reshape2,
+    preprocessCore,
+    progress,
+    Matrix,
+    Rtsne
+Suggests:
+    BiocStyle,
+    knitr,
+    rmarkdown,
+    testthat
+RoxygenNote: 7.3.1

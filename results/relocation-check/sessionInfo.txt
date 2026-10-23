@@ -1,0 +1,64 @@
+R version 4.5.2 (2025-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26200)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Chinese (Simplified)_China.utf8 
+[2] LC_CTYPE=Chinese (Simplified)_China.utf8   
+[3] LC_MONETARY=Chinese (Simplified)_China.utf8
+[4] LC_NUMERIC=C                               
+[5] LC_TIME=Chinese (Simplified)_China.utf8    
+
+time zone: Asia/Shanghai
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] corpcor_1.6.10      linseed_0.99.3      Biobase_2.70.0     
+[4] BiocGenerics_0.56.0 generics_0.1.4     
+
+loaded via a namespace (and not attached):
+ [1] SummarizedExperiment_1.40.0 gtable_0.3.6               
+ [3] ggplot2_4.0.3               lattice_0.22-7             
+ [5] tzdb_0.5.0                  vctrs_0.7.3                
+ [7] tools_4.5.2                 stats4_4.5.2               
+ [9] parallel_4.5.2              tibble_3.3.1               
+[11] cluster_2.1.8.1             pkgconfig_2.0.3            
+[13] Matrix_1.7-4                data.table_1.18.6.1        
+[15] rentrez_1.2.4               RColorBrewer_1.1-3         
+[17] S7_0.2.2                    S4Vectors_0.48.1           
+[19] rngtools_1.5.2              lifecycle_1.0.5            
+[21] compiler_4.5.2              farver_2.1.2               
+[23] stringr_1.6.0               progress_1.2.3             
+[25] combinat_0.0-9              statmod_1.5.2              
+[27] Seqinfo_1.0.0               codetools_0.2-20           
+[29] preprocessCore_1.72.0       crayon_1.5.3               
+[31] pillar_1.11.1               tidyr_1.3.2                
+[33] DelayedArray_0.36.1         limma_3.66.0               
+[35] iterators_1.0.14            abind_1.4-8                
+[37] foreach_1.5.2               tidyselect_1.2.1           
+[39] digest_0.6.39               Rtsne_0.17                 
+[41] stringi_1.8.9               dplyr_1.2.1                
+[43] reshape2_1.4.5              purrr_1.2.2                
+[45] labeling_0.4.3              RcppArmadillo_15.6.0-1     
+[47] grid_4.5.2                  colorspace_2.1-4           
+[49] GEOquery_2.78.0             cli_3.6.6                  
+[51] SparseArray_1.10.10         magrittr_2.0.5             
+[53] S4Arrays_1.10.1             XML_3.99-0.25              
+[55] withr_3.0.3                 readr_2.2.0                
+[57] prettyunits_1.2.0           scales_1.4.0               
+[59] registry_0.5-1              XVector_0.50.0             
+[61] matrixStats_1.5.0           hms_1.1.4                  
+[63] GenomicRanges_1.62.1        IRanges_2.44.0             
+[65] BH_1.90.0-1                 doParallel_1.0.17          
+[67] NMF_0.28                    rlang_1.3.0                
+[69] Rcpp_1.1.2                  gridBase_0.4-7             
+[71] glue_1.8.1                  BiocManager_1.30.27        
+[73] xml2_1.6.0                  jsonlite_2.0.0             
+[75] R6_2.6.1                    plyr_1.8.9                 
+[77] MatrixGenerics_1.22.0      

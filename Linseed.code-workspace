@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "study"
+    },
+    {
+      "path": "source"
+    },
+    {
+      "path": "my_linseed"
+    }
+  ],
+  "settings": {
+    "r.rterm.windows": "D:\\single cell项目\\Linseed\\R\\bin\\R.exe",
+    "r.rpath.windows": "D:\\single cell项目\\Linseed\\R\\bin\\R.exe",
+    "r.rterm.option": ["--no-save", "--no-restore"],
+    "r.bracketedPaste": true,
+    "terminal.integrated.env.windows": {"R_LIBS_USER":"D:/single cell项目/Linseed/library", "RTOOLS45_HOME":"D:/single cell项目/Linseed/rtools45"},
+    "files.encoding": "utf8"
+  },
+  "extensions": {"recommendations": ["REditorSupport.r"]}
+}
